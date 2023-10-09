@@ -1,10 +1,8 @@
 package com.example.notice_board_be.service;
 
-import com.example.notice_board_be.domain.request.BoardReqeust;
 import com.example.notice_board_be.domain.request.UserLoginRequest;
-import com.example.notice_board_be.domain.request.UserReqeust;
+import com.example.notice_board_be.domain.request.SignupReqeust;
 import com.example.notice_board_be.domain.response.UserResponse;
-import com.example.notice_board_be.repository.BoardRepository;
 import com.example.notice_board_be.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,7 +12,7 @@ import org.springframework.stereotype.Service;
 public class UserService {
     private final UserRepository userRepository;
 
-    public void save(UserReqeust reqeust){
+    public void save(SignupReqeust reqeust){
         userRepository.save(reqeust.toEntity());
     }
 

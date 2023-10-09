@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface BoardRepository extends JpaRepository<Board, Long> {
 
-    @Query("select b from Board b order by b.boardId desc")
-    Optional<Board> findByAll();
+//    @Query("select b from Board b order by b.boardId desc")
+//    Optional<Board> findByAll();
 
 }

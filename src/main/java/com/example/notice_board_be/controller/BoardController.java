@@ -6,11 +6,13 @@ import com.example.notice_board_be.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/board")
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("*")
 public class BoardController {
     private final BoardService boardService;
 
@@ -20,7 +22,7 @@ public class BoardController {
     }
 
     @GetMapping
-    public BoardResponse getAll(){
+    public List<BoardResponse> getAll(){
         return boardService.findAll();
     }
 

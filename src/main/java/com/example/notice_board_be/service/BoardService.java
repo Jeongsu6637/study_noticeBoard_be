@@ -19,10 +19,15 @@ public class BoardService {
         boardRepository.save(reqeust.toEntity());
     }
 
-    public BoardResponse findAll(){
-        Optional<Board> all = boardRepository.findByAll();
-        Board board = all.get();
-        return new BoardResponse(board.getBoardId(), board.getTitle(), board.getContent(), board.getName(), board.getCreateAt());
+    public List<BoardResponse> findAll(){
+        List<Board> all = boardRepository.findAll();
+        for (int i = 0; i < all.size(); i++) {
+            Board board = all.get(i);
+            List<BoardResponse> list = all.stream().map((e) -> new BoardResponse(board.getBoardId(), board.getTitle(), board.getContent(), board.getName(), board.getCreateAt())).toList();
+            return list;
+        }
+        return null;
     }
+
 
 }
